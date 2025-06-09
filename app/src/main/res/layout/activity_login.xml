@@ -121,7 +121,6 @@
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:text="Iniciar sesión"
-            android:onClick="entrarAApp"
             android:layout_marginBottom="16dp" />
     </LinearLayout>
 </ScrollView>
