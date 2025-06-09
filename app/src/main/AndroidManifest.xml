@@ -13,14 +13,21 @@
         android:theme="@style/Theme.EstudioPro"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <!-- ✅ Hacer LoginActivity la primera que se lanza -->
+        <activity
+            android:name=".ActivityLogin"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> <!-- MainActivity ya no debe tener intent-filter -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
