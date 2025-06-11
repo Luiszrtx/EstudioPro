@@ -155,3 +155,4 @@
         app:itemTextColor="@color/selector_bottom_nav"
         app:menu="@menu/bottom_nav_menu" />
 </LinearLayout>
+
