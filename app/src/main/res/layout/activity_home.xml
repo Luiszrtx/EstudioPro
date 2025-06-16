@@ -21,10 +21,22 @@
             <TextView
                 android:id="@+id/textTitulo"
                 android:text="EstudioPro"
-                android:textColor="#00B8D4"
-                android:textSize="26sp"
+                android:textColor="#F5F5F5"
+                android:textSize="20sp"
+                android:gravity="left"
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp" />
+
+            <TextView
+                android:id="@+id/textNombre"
+                android:text="¡Hola, Nombre!"
+                android:textColor="#F5F5F5"
+                android:textSize="35sp"
                 android:textStyle="bold"
-                android:gravity="center"
+                android:gravity="left"
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="12dp" />
@@ -32,18 +44,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="👋 ¡Bienvenido!"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:layout_marginBottom="24dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tareas próximas"
-                android:textColor="#00B8D4"
+                android:text="Tareas Proximas"
+                android:textColor="#00B8D1"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="8dp" />
 
             <androidx.cardview.widget.CardView
@@ -61,8 +66,8 @@
                     android:padding="16dp">
 
                     <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/ic_check"
                         android:tint="#00B8D4" />
 
@@ -74,11 +79,12 @@
                         android:layout_marginStart="12dp">
 
                         <TextView
+                            android:id="@+id/tituloTarea"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Leer capítulo 5"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
+                            android:textColor="#F5F5F5"
+                            android:textSize="18sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -95,7 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Exámenes próximos"
-                android:textColor="#00B8D4"
+                android:textColor="#00B8D1"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="8dp" />
@@ -114,8 +120,8 @@
                     android:padding="16dp">
 
                     <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/ic_exam"
                         android:tint="#00B8D4" />
 
@@ -127,11 +133,12 @@
                         android:layout_marginStart="12dp">
 
                         <TextView
+                            android:id="@+id/tituloMateria"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Matemáticas"
                             android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
+                            android:textSize="18sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -145,6 +152,36 @@
             </androidx.cardview.widget.CardView>
         </LinearLayout>
     </ScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="370dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="#00B8D4"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="4dp"
+        android:layout_marginLeft="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:id="@+id/nuevoRegistro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nuevo Registro"
+                    android:textColor="#1F1F1F"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="95dp"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

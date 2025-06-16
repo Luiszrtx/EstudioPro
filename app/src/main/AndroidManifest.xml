@@ -28,6 +28,9 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
+        <activity android:name=".MateriasActivity" />
+        <activity android:name=".DetallesMatActivity"/>
     </application>
 
 </manifest>
