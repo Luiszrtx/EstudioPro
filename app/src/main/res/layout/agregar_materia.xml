@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/bordes_redondos"
+    android:outlineAmbientShadowColor="@android:color/holo_blue_light">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agregar Materia"
+        android:textSize="25sp"
+        android:layout_marginLeft="65dp"
+        android:textColor="#00B8D4"
+        android:textStyle="bold"
+        android:layout_marginBottom="15dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_book_24"
+            android:tint="#00B8D4"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="10dp"/>
+
+        <EditText
+            android:id="@+id/editTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Materia"
+            android:inputType="text"
+            android:textColorHint="#808080"
+            android:textColor="#00B8D4"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_person_24"
+            android:tint="#00B8D4"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="10dp"/>
+
+
+        <EditText
+            android:id="@+id/editMaestro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Profesor"
+            android:inputType="text"
+            android:textColorHint="#808080"
+            android:textColor="#00B8D4"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_calendar_month_24"
+            android:tint="#00B8D4"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="10dp"/>
+
+
+        <EditText
+            android:id="@+id/editHorario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Horario"
+            android:inputType="text"
+            android:textColorHint="#808080"
+            android:textColor="#00B8D4"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_numbers_24"
+            android:tint="#00B8D4"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="10dp"/>
+
+        <EditText
+            android:id="@+id/editAula"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Aula"
+            android:inputType="text"
+            android:textColorHint="#808080"
+            android:textColor="#00B8D4"
+            android:layout_marginBottom="15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_color_lens_24"
+            android:tint="#00B8D4"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="2dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Color:"
+            android:textSize="18sp"
+            android:textColor="#808080"
+            android:layout_marginBottom="3dp"
+            android:layout_marginRight="10dp"/>
+
+        <View
+            android:id="@+id/previewColor"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/circulo_shape"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnElegirCOlor"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:text="Elegir Color"
+            android:layout_marginTop="0dp"
+            android:textColor="#808080"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#181818" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:text="Cancelar"
+            android:textSize="15sp"
+            android:layout_marginLeft="27dp"/>
+
+        <Button
+            android:id="@+id/btnAgregar"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#00B8D4"
+            android:text="Agregar"
+            android:textSize="15sp"
+            android:layout_marginLeft="20dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

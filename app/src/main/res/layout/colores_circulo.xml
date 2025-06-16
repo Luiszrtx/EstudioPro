@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/bordes_redondos"
+        android:layout_marginLeft="22dp">
+
+        <View
+            android:id="@+id/color1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/circulo_shape"
+            android:tag="#F44336" />
+
+        <View
+            android:id="@+id/color2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/circulo_shape"
+            android:tag="#2196F3" />
+
+        <View
+            android:id="@+id/color3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/circulo_shape"
+            android:tag="#4CAF50" />
+
+        <View
+            android:id="@+id/color4"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/circulo_shape"
+            android:tag="#FF9800" />
+
+        <View
+            android:id="@+id/color5"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/circulo_shape"
+            android:tag="#9C27B0" />
+
+    </LinearLayout>
+
+</LinearLayout>
