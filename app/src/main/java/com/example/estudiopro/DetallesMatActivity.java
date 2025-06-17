@@ -14,7 +14,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 
+import com.example.estudiopro.fragments.InicioFragment;
+import com.example.estudiopro.fragments.MateriasFragment;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -93,6 +96,7 @@ public class DetallesMatActivity extends AppCompatActivity {
                 btnConfirmar.setOnClickListener(view -> {
                     eliminarMateria(t, m, h, a); // Se envían los datos para identificar la materia
                     dialog.dismiss(); // Cierra el diálogo
+
                 });
             }
         });
@@ -136,11 +140,11 @@ public class DetallesMatActivity extends AppCompatActivity {
             preferences.edit().putString("materias_guardadas", nuevoJson).apply();
 
             // Regresa a la actividad anterior informando que se eliminó la materia
-            Intent resultIntent = new Intent();
-            resultIntent.putExtra("materiaEliminada", true);
-            setResult(RESULT_OK, resultIntent);
-            finish(); // Cierra esta actividad
-            overridePendingTransition(R.anim.movimiento_derecha, R.anim.movimiento_izquierda); // Aplica animación
+            Intent intent = new Intent(DetallesMatActivity.this, HomeActivity.class); // Reemplaza con el nombre real de tu activity principal
+            intent.putExtra("ir_a_fragment", "materias");
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
         }
     }
 }

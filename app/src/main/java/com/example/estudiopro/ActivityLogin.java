@@ -14,7 +14,7 @@ public class ActivityLogin extends AppCompatActivity {
 
         Button loginBtn = findViewById(R.id.btn_login);
         loginBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(ActivityLogin.this, MateriasActivity.class); // Cambia a tu actividad principal real
+            Intent intent = new Intent(ActivityLogin.this, HomeActivity.class); // Cambia a tu actividad principal real
             startActivity(intent);
             finish(); // para no volver al login
         });
