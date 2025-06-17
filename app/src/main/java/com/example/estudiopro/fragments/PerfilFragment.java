@@ -10,9 +10,11 @@ import android.view.ViewGroup;
 
 import com.example.estudiopro.R;
 
-public class InicioFragment extends Fragment {
 
-    public InicioFragment() {
-        super(R.layout.fragment_inicio); // Esto carga el XML fragment_inicio.xml
+public class PerfilFragment extends Fragment {
+
+    public PerfilFragment() {
+        super(R.layout.fragment_perfil); // Esto carga el XML fragment_perfil.xml
     }
+
 }
