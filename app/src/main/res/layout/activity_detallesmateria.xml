@@ -173,6 +173,21 @@
         android:textStyle="bold"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="20dp"/>
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="340dp">
+
+        <LinearLayout
+            android:id="@+id/contenedor_tareas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"/>
+
+    </ScrollView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_agregar_tarea"
@@ -182,7 +197,7 @@
         app:cardCornerRadius="100dp"
         app:cardElevation="4dp"
         android:background="@drawable/bordes_redondos_2"
-        android:layout_marginTop="330dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="14dp">
 
         <LinearLayout
