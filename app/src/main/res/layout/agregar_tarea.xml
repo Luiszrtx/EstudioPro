@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/editTituloTarea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Título de la tarea" />
+
+    <EditText
+        android:id="@+id/editDescripcionTarea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descripción" />
+
+    <EditText
+        android:id="@+id/editNotaTarea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nota" />
+
+    <Button
+        android:id="@+id/btnSeleccionarFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar fecha" />
+
+    <TextView
+        android:id="@+id/textFechaSeleccionada"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fecha no seleccionada"
+        android:paddingTop="8dp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroupPrioridad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioBaja"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Baja" />
+
+        <RadioButton
+            android:id="@+id/radioMedia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Media" />
+
+        <RadioButton
+            android:id="@+id/radioAlta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alta" />
+    </RadioGroup>
+
+</LinearLayout>
