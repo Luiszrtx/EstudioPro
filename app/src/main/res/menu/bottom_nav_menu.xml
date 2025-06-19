@@ -16,6 +16,12 @@
         android:title="Calendario" />
 
     <item
+        android:id="@+id/nav_tareas"
+        android:icon="@drawable/baseline_check_circle_outline_24"
+        android:title="Tareas"
+        android:fillColor="#e3e3e3"/>
+
+    <item
         android:id="@+id/nav_perfil"
         android:icon="@drawable/ic_user"
         android:title="Perfil" />

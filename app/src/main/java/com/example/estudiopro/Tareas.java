@@ -6,6 +6,7 @@ public class Tareas {
     private String prioridad;
     private String descripcion;
     private String nota;
+    private boolean completa;
 
     public Tareas(String titulo, String fecha, String prioridad, String descripcion, String nota) {
         this.titulo = titulo;
@@ -21,4 +22,7 @@ public class Tareas {
     public String getPrioridad() { return prioridad; }
     public String getDescripcion() { return descripcion; }
     public String getNota() { return nota; }
+
+    public boolean isCompleta() { return completa;}
+    public void setCompleta(boolean completa) { this.completa = completa;}
 }

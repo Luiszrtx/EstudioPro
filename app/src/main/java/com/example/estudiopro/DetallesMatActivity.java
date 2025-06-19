@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -134,6 +136,12 @@ public class DetallesMatActivity extends AppCompatActivity {
             Type type = new TypeToken<ArrayList<Materia>>(){}.getType();
             List<Materia> materias = gson.fromJson(json, type); // Deserializa la lista
 
+            if (json != null) {
+                materias = gson.fromJson(json, type);
+            } else {
+                materias = new ArrayList<>();  // <--- Agrega esto para evitar el null
+            }
+
             // Busca la materia exacta por sus campos y la elimina
             for (int i = 0; i < materias.size(); i++) {
                 Materia materia = materias.get(i);
@@ -216,9 +224,20 @@ public class DetallesMatActivity extends AppCompatActivity {
 
         TextView tituloCard = cardView.findViewById(R.id.titulo_card);
         TextView fechaCard = cardView.findViewById(R.id.fecha_card);
+        ImageView icono = cardView.findViewById(R.id.circuloColor);
+        androidx.cardview.widget.CardView card = cardView.findViewById(R.id.cardTreas);
 
         tituloCard.setText(tarea.getTitulo());
         fechaCard.setText(tarea.getFecha());
+        if (tarea.isCompleta()) {
+            icono.setImageResource(R.drawable.baseline_playlist_add_check_24);
+            icono.setColorFilter(getResources().getColor(android.R.color.holo_green_light));
+        } else {
+            icono.setImageResource(R.drawable.baseline_menu_book_24);
+            String colorHex = "#00B8D4";
+            int color = Color.parseColor(colorHex);
+            icono.setColorFilter(color);
+        }
 
         // Al hacer clic en el CardView mostramos los detalles
         cardView.setOnClickListener(v -> {
@@ -231,6 +250,8 @@ public class DetallesMatActivity extends AppCompatActivity {
 
             // También pasamos el nombre de la materia para saber a qué clave pertenece:
             intent.putExtra("claveTareas", obtenerClaveTareas());
+            intent.putExtra("materia", tituloMateria);
+            intent.putExtra("completa", tarea.isCompleta());
             startActivityForResult(intent, 100); // Para que podamos actualizar al volver si hace falta
         });
 
@@ -278,20 +299,15 @@ public class DetallesMatActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 100 && resultCode == RESULT_OK) {
-            String tituloEliminado = data.getStringExtra("tareaEliminada");
-
-            // Buscamos el cardView correspondiente y lo eliminamos del contenedor
+            // Limpiamos los cards existentes:
             LinearLayout contenedor = findViewById(R.id.contenedor_tareas);
-            for (int i = 0; i < contenedor.getChildCount(); i++) {
-                View cardView = contenedor.getChildAt(i);
-                TextView tituloCard = cardView.findViewById(R.id.titulo_card);
-                if (tituloCard.getText().toString().equals(tituloEliminado)) {
-                    contenedor.removeViewAt(i);
-                    break;
-                }
-            }
+            contenedor.removeAllViews();
+
+            // Volvemos a cargar las tareas desde SharedPreferences
+            cargarTareas();
         }
     }
+
 
 
 }

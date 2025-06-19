@@ -2,42 +2,176 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#121212"
+    android:paddingTop="30dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/regresar">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_arrow_back_ios_24"
+            android:tint="#F5F5F5"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Atrás"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:textColor="#F5F5F5"
+            android:layout_marginLeft="-6dp"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tituloDetalle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:text="Titulo Tarea"
+        android:textColor="#F5F5F5"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="24dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha de Entrega"
+        android:textColor="#F5F5F5"
+        android:textSize="21sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="24dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/fechaDetalle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Fecha de Entrega"
+        android:textColor="#F5F5F5"
+        android:textSize="18sp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estado"
+        android:textSize="21sp"
+        android:textColor="#F5F5F5"
+        android:layout_marginLeft="24dp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/estadoTarea"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bordes_redondos_2"
+        android:text="Estado"
+        android:textSize="18sp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#2F3F5F"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Materia"
+        android:textSize="21sp"
+        android:textColor="#F5F5F5"
+        android:textStyle="bold"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/textMateriaNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre Materia"
+        android:textColor="#F5F5F5"
+        android:textSize="18sp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prioridad"
+        android:textSize="21sp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="15dp"
+        android:textStyle="bold"
+        android:textColor="#F5F5F5"/>
 
     <TextView
         android:id="@+id/prioridadDetalle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Prioridad"
+        android:textSize="18sp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#F5F5F5"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripcion"
+        android:textSize="21sp"
+        android:layout_marginLeft="24dp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:textColor="#F5F5F5"/>
 
     <TextView
         android:id="@+id/descripcionDetalle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Descripcion"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp"
+        android:textColor="#F5F5F5"
+        android:layout_marginLeft="24dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notas"
+        android:textStyle="bold"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="15dp"
+        android:textColor="#F5F5F5"
+        android:textSize="21sp"/>
 
     <TextView
         android:id="@+id/notaDetalle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Notas"
+        android:textSize="18sp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#F5F5F5"/>
 
     <Button
         android:id="@+id/btnEliminarTarea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Eliminar Tarea"
-        android:background="@android:color/holo_red_dark"
         android:textColor="@android:color/white"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginTop="120dp"
+        android:drawableTint="@android:color/holo_red_dark"
+        android:foregroundTint="@android:color/holo_red_dark"
+        android:backgroundTint="@android:color/holo_red_dark"/>
 
 </LinearLayout>

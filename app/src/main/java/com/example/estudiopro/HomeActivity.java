@@ -11,6 +11,7 @@ import com.example.estudiopro.fragments.CalendarioFragment;
 import com.example.estudiopro.fragments.InicioFragment;
 import com.example.estudiopro.fragments.MateriasFragment;
 import com.example.estudiopro.fragments.PerfilFragment;
+import com.example.estudiopro.fragments.TodasTareasFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
@@ -53,6 +54,8 @@ public class HomeActivity extends AppCompatActivity {
                 selectedFragment = new CalendarioFragment();
             } else if (id == R.id.nav_perfil) {
                 selectedFragment = new PerfilFragment();
+            } else if (id == R.id.nav_tareas) {
+                selectedFragment = new TodasTareasFragment();
             }
 
             if (selectedFragment != null) {
