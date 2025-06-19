@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.icu.util.Calendar;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class DetallesMatActivity extends AppCompatActivity {
 
@@ -129,44 +131,41 @@ public class DetallesMatActivity extends AppCompatActivity {
     // Método para eliminar una materia específica de SharedPreferences
     private void eliminarMateria(String titulo, String maestro, String horario, String aula) {
         SharedPreferences preferences = getSharedPreferences("MisMasterias", MODE_PRIVATE);
-        String json = preferences.getString("materias_guardadas", null); // Obtiene el JSON de la lista
+        String json = preferences.getString("materias_guardadas", null);
 
-        if (json != null) {
-            Gson gson = new Gson();
-            Type type = new TypeToken<ArrayList<Materia>>(){}.getType();
-            List<Materia> materias = gson.fromJson(json, type); // Deserializa la lista
+        Gson gson = new Gson();
+        Type type = new TypeToken<ArrayList<Materia>>(){}.getType();
+        List<Materia> materias = (json != null) ? gson.fromJson(json, type) : new ArrayList<>();
 
-            if (json != null) {
-                materias = gson.fromJson(json, type);
-            } else {
-                materias = new ArrayList<>();  // <--- Agrega esto para evitar el null
+        for (int i = 0; i < materias.size(); i++) {
+            Materia materia = materias.get(i);
+            if (materia.getTitulo().equals(titulo) &&
+                    materia.getMaestro().equals(maestro) &&
+                    materia.getHorario().equals(horario) &&
+                    materia.getAula().equals(aula)) {
+
+                materias.remove(i);
+                break;
             }
-
-            // Busca la materia exacta por sus campos y la elimina
-            for (int i = 0; i < materias.size(); i++) {
-                Materia materia = materias.get(i);
-                if (materia.getTitulo().equals(titulo) &&
-                        materia.getMaestro().equals(maestro) &&
-                        materia.getHorario().equals(horario) &&
-                        materia.getAula().equals(aula)) {
-
-                    materias.remove(i); // Elimina la materia de la lista
-                    break;
-                }
-            }
-
-            // Guarda la lista actualizada en SharedPreferences
-            String nuevoJson = gson.toJson(materias);
-            preferences.edit().putString("materias_guardadas", nuevoJson).apply();
-
-            // Regresa a la actividad anterior informando que se eliminó la materia
-            Intent intent = new Intent(DetallesMatActivity.this, HomeActivity.class); // Reemplaza con el nombre real de tu activity principal
-            intent.putExtra("ir_a_fragment", "materias");
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-            finish();
         }
+
+        // Guardamos nuevamente las materias
+        String nuevoJson = gson.toJson(materias);
+        preferences.edit().putString("materias_guardadas", nuevoJson).apply();
+
+        // 🔥 ELIMINAMOS TAMBIÉN LAS TAREAS ASOCIADAS
+        SharedPreferences tareasPrefs = getSharedPreferences("TAREAS_PREF", MODE_PRIVATE);
+        String claveTareas = "TAREAS_" + titulo;  // igual que en obtenerClaveTareas()
+        tareasPrefs.edit().remove(claveTareas).apply();
+
+        // Regresamos a la pantalla principal
+        Intent intent = new Intent(DetallesMatActivity.this, HomeActivity.class);
+        intent.putExtra("ir_a_fragment", "materias");
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
+
 
     private void mostrarDialogoAgregarTarea() {
         LayoutInflater inflater = LayoutInflater.from(this);
@@ -178,6 +177,10 @@ public class DetallesMatActivity extends AppCompatActivity {
         Button btnSeleccionarFecha = dialogView.findViewById(R.id.btnSeleccionarFecha);
         TextView textFechaSeleccionada = dialogView.findViewById(R.id.textFechaSeleccionada);
         RadioGroup radioGroupPrioridad = dialogView.findViewById(R.id.radioGroupPrioridad);
+
+        // Nuevos botones que ahora están en el XML
+        Button btnAgregar = dialogView.findViewById(R.id.btnAgregar);
+        Button btnCancelar = dialogView.findViewById(R.id.btnCancelar);
 
         final String[] fechaSeleccionada = {""};  // Variable auxiliar
 
@@ -195,11 +198,12 @@ public class DetallesMatActivity extends AppCompatActivity {
             datePickerDialog.show();
         });
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setView(dialogView);
-        builder.setTitle("Agregar Tarea");
+        // Creamos el diálogo sin título
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setView(dialogView)
+                .create();
 
-        builder.setPositiveButton("Agregar", (dialog, which) -> {
+        btnAgregar.setOnClickListener(v -> {
             String titulo = editTitulo.getText().toString();
             String descripcion = editDescripcion.getText().toString();
             String nota = editNota.getText().toString();
@@ -212,11 +216,15 @@ public class DetallesMatActivity extends AppCompatActivity {
             Tareas nuevaTarea = new Tareas(titulo, fecha, prioridad, descripcion, nota);
             agregarCardTarea(nuevaTarea);
             guardarTarea(nuevaTarea);
+            dialog.dismiss();
         });
 
-        builder.setNegativeButton("Cancelar", null);
-        builder.create().show();
+        btnCancelar.setOnClickListener(v -> dialog.dismiss());
+
+        dialog.show();
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
     }
+
 
     private void agregarCardTarea(Tareas tarea) {
         LayoutInflater inflater = LayoutInflater.from(this);
@@ -307,8 +315,6 @@ public class DetallesMatActivity extends AppCompatActivity {
             cargarTareas();
         }
     }
-
-
 
 }
 

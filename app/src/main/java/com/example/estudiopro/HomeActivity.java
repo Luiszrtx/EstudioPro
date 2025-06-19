@@ -22,6 +22,7 @@ public class HomeActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 
+
         // Mostrar fragmento inicial
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, new InicioFragment()).commit();
@@ -50,12 +51,10 @@ public class HomeActivity extends AppCompatActivity {
                 selectedFragment = new InicioFragment();
             } else if (id == R.id.nav_materias) {
                 selectedFragment = new MateriasFragment();
-            } else if (id == R.id.nav_calendario) {
+            } else if (id == R.id.nav_tareas) {
                 selectedFragment = new CalendarioFragment();
             } else if (id == R.id.nav_perfil) {
                 selectedFragment = new PerfilFragment();
-            } else if (id == R.id.nav_tareas) {
-                selectedFragment = new TodasTareasFragment();
             }
 
             if (selectedFragment != null) {

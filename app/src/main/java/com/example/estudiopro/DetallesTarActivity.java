@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -66,18 +67,31 @@ public class DetallesTarActivity extends AppCompatActivity {
             btnEstado.setTextColor(getResources().getColor(android.R.color.black)); // o el color que quieras para pendiente
         }
         btnEstado.setOnClickListener(v -> {
-            new AlertDialog.Builder(this)
-                    .setTitle("Marcar como completado")
-                    .setMessage("¿Estás seguro de marcar como completado?")
-                    .setPositiveButton("Sí", (dialog, which) -> {
-                        btnEstado.setText("Completada");
-                        btnEstado.setTextColor(getResources().getColor(android.R.color.black));
-                        btnEstado.setBackgroundResource(R.drawable.bordes_redondos_4);
-                        marcarTareaComoCompletada(titulo);
-                    })
-                    .setNegativeButton("No", null)
-                    .show();
+            LayoutInflater inflater = LayoutInflater.from(this);
+            View dialogView = inflater.inflate(R.layout.activity_completado, null);
+
+            TextView textMensaje = dialogView.findViewById(R.id.textMensaje);
+            Button btnSi = dialogView.findViewById(R.id.btnSi);
+            Button btnNo = dialogView.findViewById(R.id.btnNo);
+
+            AlertDialog dialog = new AlertDialog.Builder(this)
+                    .setView(dialogView)
+                    .create();
+
+            btnSi.setOnClickListener(view -> {
+                btnEstado.setText("Completada");
+                btnEstado.setTextColor(getResources().getColor(android.R.color.black));
+                btnEstado.setBackgroundResource(R.drawable.bordes_redondos_4);
+                marcarTareaComoCompletada(titulo);
+                dialog.dismiss();
+            });
+
+            btnNo.setOnClickListener(view -> dialog.dismiss());
+
+            dialog.show();
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         });
+
     }
     private void eliminarTarea() {
         SharedPreferences prefs = getSharedPreferences("TAREAS_PREF", MODE_PRIVATE);

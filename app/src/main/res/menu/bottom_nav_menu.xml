@@ -11,15 +11,9 @@
         android:title="Materias" />
 
     <item
-        android:id="@+id/nav_calendario"
-        android:icon="@drawable/ic_calendar"
-        android:title="Calendario" />
-
-    <item
         android:id="@+id/nav_tareas"
         android:icon="@drawable/baseline_check_circle_outline_24"
-        android:title="Tareas"
-        android:fillColor="#e3e3e3"/>
+        android:title="Calendario" />
 
     <item
         android:id="@+id/nav_perfil"

@@ -5,37 +5,44 @@
 
     <LinearLayout
         android:orientation="vertical"
+        android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:layout_height="wrap_content">
 
+        <!-- Sección de pendientes -->
         <TextView
-            android:text="Pendientes"
-            android:textSize="20sp"
+            android:id="@+id/titulo_pendientes"
+            android:text="Tareas Pendientes:"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:layout_marginBottom="8dp"
-            android:textColor="#000000"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F5F5F5"
+            android:layout_marginBottom="15dp"/>
 
         <LinearLayout
             android:id="@+id/contenedor_pendientes"
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"/>
+            android:orientation="vertical"
+            android:paddingBottom="16dp" />
 
+        <!-- Sección de completadas -->
         <TextView
-            android:text="Completadas"
-            android:textSize="20sp"
+            android:id="@+id/titulo_completadas"
+            android:text="Tareas Completadas:"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:layout_marginBottom="8dp"
-            android:textColor="#000000"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F5F5F5"
+            android:layout_marginBottom="15dp"/>
 
         <LinearLayout
             android:id="@+id/contenedor_completadas"
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
 
     </LinearLayout>
-
 </ScrollView>

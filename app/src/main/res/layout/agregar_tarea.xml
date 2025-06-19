@@ -1,39 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:background="@drawable/bordes_redondos"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agregar Tarea"
+        android:textSize="25sp"
+        android:textColor="#00B8D4"
+        android:textStyle="bold"
+        android:layout_marginBottom="15dp"
+        android:textAlignment="center"
+        android:layout_gravity="center"/>
 
     <EditText
         android:id="@+id/editTituloTarea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Título de la tarea" />
+        android:hint="Título de la tarea"
+        android:textColorHint="#808080"
+        android:textColor="#00B8D4"/>
 
     <EditText
         android:id="@+id/editDescripcionTarea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Descripción" />
+        android:hint="Descripción"
+        android:textColorHint="#808080"
+        android:textColor="#00B8D4"/>
 
     <EditText
         android:id="@+id/editNotaTarea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nota" />
+        android:hint="Nota"
+        android:textColorHint="#808080"
+        android:textColor="#00B8D4"/>
 
     <Button
         android:id="@+id/btnSeleccionarFecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seleccionar fecha" />
+        android:text="Seleccionar fecha"
+        android:backgroundTint="@android:color/holo_green_dark"/>
 
     <TextView
         android:id="@+id/textFechaSeleccionada"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fecha no seleccionada"
-        android:paddingTop="8dp"/>
+        android:text="Fecha seleccionada"
+        android:paddingTop="10dp"
+        android:textColor="#00B8D4"
+        android:layout_marginBottom="18dp"
+        android:textSize="15sp"/>
 
     <RadioGroup
         android:id="@+id/radioGroupPrioridad"
@@ -45,19 +68,53 @@
             android:id="@+id/radioBaja"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Baja" />
+            android:text="Baja"
+            android:textColor="#00B8D4"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:buttonTint="@android:color/holo_blue_light"/>
 
         <RadioButton
             android:id="@+id/radioMedia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Media" />
+            android:text="Media"
+            android:textColor="#00B8D4"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:buttonTint="@android:color/holo_blue_light"/>
 
         <RadioButton
             android:id="@+id/radioAlta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alta" />
+            android:text="Alta"
+            android:textColor="#00B8D4"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:buttonTint="@android:color/holo_blue_light"/>
     </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:layout_marginLeft="65dp"/>
+
+        <Button
+            android:id="@+id/btnAgregar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agregar"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="#00B8D4"/>
+    </LinearLayout>
+
 
 </LinearLayout>
